@@ -1,0 +1,146 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-navbar;
+  height: $navbar-height;
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-md;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-display;
+    font-weight: 700;
+
+    &-mark {
+      @include flex-center;
+      width: 38px;
+      height: 38px;
+      border-radius: $radius-sm;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: #04212a;
+      font-size: 0.9rem;
+    }
+
+    &-text {
+      font-size: 1.05rem;
+      display: none;
+
+      @include respond(mobile) {
+        display: inline;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+
+    // Mobile: slide-down panel
+    @media (max-width: #{$bp-tablet - 1px}) {
+      position: absolute;
+      top: $navbar-height;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-120%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform $transition-base, opacity $transition-base;
+
+      &.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    padding: $space-sm $space-md;
+    border-radius: $radius-pill;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color $transition-fast, background $transition-fast;
+
+    &:hover {
+      color: var(--color-text);
+    }
+
+    &.is-active {
+      color: var(--color-primary);
+      background: var(--color-bg-alt);
+    }
+
+    @media (max-width: #{$bp-tablet - 1px}) {
+      border-radius: 0;
+      padding: $space-md $space-lg;
+    }
+  }
+
+  &__badge {
+    @include flex-center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: $radius-pill;
+    background: var(--color-primary);
+    color: #04212a;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+  }
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    padding: 0 8px;
+
+    span {
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: transform $transition-base, opacity $transition-fast;
+    }
+
+    &.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    &.is-open span:nth-child(2) { opacity: 0; }
+    &.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+}

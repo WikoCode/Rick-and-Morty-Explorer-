@@ -1,0 +1,40 @@
+// Design tokens — spacing, radius, typography, breakpoints, z-index.
+// Colors live in _themes.scss because they change with the active theme.
+
+// Spacing scale (rem)
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2.5rem;
+$space-2xl: 4rem;
+
+// Radii
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-pill: 999px;
+
+// Typography
+$font-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+$font-display: 'Poppins', $font-base;
+
+// Responsive breakpoints (match Chrome DevTools device set)
+$bp-mobile-sm: 360px; // Galaxy / small phones
+$bp-mobile: 480px;
+$bp-tablet: 768px; // iPad mini / portrait tablets
+$bp-laptop: 1024px;
+$bp-desktop: 1280px;
+
+// Layout
+$container-max: 1200px;
+$navbar-height: 68px;
+
+// Z-index scale
+$z-navbar: 100;
+$z-modal-backdrop: 900;
+$z-modal: 1000;
+
+// Motion
+$transition-fast: 0.15s ease;
+$transition-base: 0.25s ease;

@@ -1,0 +1,37 @@
+@use '../../../styles/variables' as *;
+
+.search-bar {
+  position: relative;
+  flex: 1 1 240px;
+
+  &__icon {
+    position: absolute;
+    left: $space-md;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $space-sm $space-md $space-sm 2.6rem;
+    border-radius: $radius-pill;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.18);
+    }
+  }
+}

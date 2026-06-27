@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.not-found {
+  @include flex-center;
+  text-align: center;
+  min-height: 60vh;
+
+  &__code {
+    display: block;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: clamp(4rem, 14vw, 8rem);
+    line-height: 1;
+    background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h1 { margin: $space-sm 0; }
+  p { color: var(--color-text-muted); margin-bottom: $space-lg; }
+}

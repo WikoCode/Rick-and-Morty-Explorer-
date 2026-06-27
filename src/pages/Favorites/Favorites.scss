@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.favorites {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-xl;
+
+    h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+  }
+
+  &__count {
+    padding: $space-xs $space-md;
+    border-radius: $radius-pill;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  &__grid {
+    @include auto-grid(190px, $space-lg);
+
+    @include respond(tablet) {
+      @include auto-grid(220px, $space-lg);
+    }
+  }
+
+  &__empty {
+    @include flex-center;
+    flex-direction: column;
+    gap: $space-md;
+    text-align: center;
+    padding: $space-2xl 0;
+    color: var(--color-text-muted);
+
+    &-icon { font-size: 3rem; }
+    p { max-width: 40ch; }
+  }
+}

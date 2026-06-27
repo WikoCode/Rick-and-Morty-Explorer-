@@ -1,0 +1,32 @@
+@use '../../../styles/variables' as *;
+
+.theme-toggle {
+  &__track {
+    display: inline-flex;
+    align-items: center;
+    width: 52px;
+    height: 28px;
+    padding: 3px;
+    border-radius: $radius-pill;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    transition: background $transition-base;
+  }
+
+  &__thumb {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    transform: translateX(0);
+    transition: transform $transition-base;
+  }
+
+  &__track.is-dark &__thumb {
+    transform: translateX(24px);
+  }
+}

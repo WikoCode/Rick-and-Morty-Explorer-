@@ -1,0 +1,103 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.detail {
+  &__back {
+    margin-bottom: $space-lg;
+  }
+
+  &__card {
+    @include card-surface;
+    display: grid;
+    gap: $space-lg;
+    padding: $space-lg;
+    overflow: hidden;
+
+    @include respond(tablet) {
+      grid-template-columns: 280px 1fr;
+      padding: $space-xl;
+      gap: $space-xl;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: $radius-md;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    color: var(--color-text-muted);
+  }
+
+  &__facts {
+    display: grid;
+    gap: $space-sm;
+
+    @include respond(mobile) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__fact {
+    @include card-surface;
+    padding: $space-sm $space-md;
+    background: var(--color-bg-alt);
+    box-shadow: none;
+
+    dt {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+    }
+    dd { font-weight: 600; }
+  }
+
+  &__episodes {
+    margin-top: $space-xl;
+
+    h2 { margin-bottom: $space-md; font-size: 1.4rem; }
+  }
+
+  &__episode-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__episode {
+    @include card-surface;
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md;
+    font-size: 0.95rem;
+
+    &-code {
+      font-weight: 700;
+      color: var(--color-primary);
+      min-width: 64px;
+    }
+    &-name { flex: 1; }
+    &-date {
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      display: none;
+
+      @include respond(mobile) { display: block; }
+    }
+  }
+}

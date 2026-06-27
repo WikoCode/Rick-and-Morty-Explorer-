@@ -1,0 +1,69 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.episodes {
+  h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin-bottom: $space-lg;
+  }
+
+  &__grid {
+    @include auto-grid(240px, $space-md);
+  }
+
+  &__card {
+    @include card-surface;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    padding: $space-lg;
+    text-align: left;
+    transition: border-color $transition-base;
+
+    &:hover { border-color: var(--color-primary); }
+  }
+
+  &__code {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  &__date {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  &__cast-label {
+    color: var(--color-text-muted);
+    margin-bottom: $space-md;
+    font-weight: 600;
+  }
+
+  &__cast {
+    @include auto-grid(90px, $space-md);
+  }
+
+  &__cast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-xs;
+    text-align: center;
+    font-size: 0.8rem;
+
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--color-border);
+    }
+  }
+}

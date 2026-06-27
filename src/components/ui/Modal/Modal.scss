@@ -1,0 +1,58 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal-backdrop;
+  background: var(--backdrop);
+  backdrop-filter: blur(4px);
+  @include flex-center;
+  padding: $space-md;
+}
+
+.modal {
+  position: relative;
+  z-index: $z-modal;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-elevated);
+  padding: $space-xl $space-lg $space-lg;
+
+  @include respond(tablet) {
+    padding: $space-xl;
+  }
+
+  &__close {
+    position: absolute;
+    top: $space-md;
+    right: $space-md;
+    width: 36px;
+    height: 36px;
+    font-size: 1.6rem;
+    line-height: 1;
+    border-radius: $radius-pill;
+    color: var(--color-text-muted);
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover {
+      background: var(--color-bg-alt);
+      color: var(--color-text);
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: $space-md;
+    padding-right: $space-xl;
+  }
+
+  &__body {
+    color: var(--color-text);
+  }
+}

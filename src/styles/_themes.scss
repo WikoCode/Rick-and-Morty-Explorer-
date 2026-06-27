@@ -1,0 +1,42 @@
+// Theme color tokens exposed as CSS custom properties.
+// The active theme is selected by a [data-theme] attribute on <html>,
+// set from React via the ThemeContext.
+
+:root,
+:root[data-theme='light'] {
+  --color-bg: #f4f6fb;
+  --color-bg-alt: #e9edf6;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1a202c;
+  --color-text-muted: #5a6678;
+  --color-primary: #11b0c8;
+  --color-primary-hover: #0e94a8;
+  --color-accent: #7c3aed;
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+
+  --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-elevated: 0 12px 40px rgba(15, 23, 42, 0.18);
+  --backdrop: rgba(15, 23, 42, 0.55);
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0d1117;
+  --color-bg-alt: #131a23;
+  --color-surface: #1a222e;
+  --color-border: #2a3543;
+  --color-text: #e6edf3;
+  --color-text-muted: #9aa7b6;
+  --color-primary: #2dd4bf;
+  --color-primary-hover: #14b8a6;
+  --color-accent: #a78bfa;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.45);
+  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --backdrop: rgba(0, 0, 0, 0.7);
+}

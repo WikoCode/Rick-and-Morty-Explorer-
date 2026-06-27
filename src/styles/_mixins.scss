@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+// Mobile-first media query helper: @include respond(tablet) { ... }
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile-sm {
+    @media (min-width: $bp-mobile-sm) { @content; }
+  } @else if $breakpoint == mobile {
+    @media (min-width: $bp-mobile) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: $bp-tablet) { @content; }
+  } @else if $breakpoint == laptop {
+    @media (min-width: $bp-laptop) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $bp-desktop) { @content; }
+  } @else {
+    @media (min-width: $breakpoint) { @content; }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  box-shadow: var(--shadow-card);
+}
+
+// Auto-fill responsive grid
+@mixin auto-grid($min: 240px, $gap: $space-lg) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+}

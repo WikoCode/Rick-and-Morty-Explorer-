@@ -1,0 +1,21 @@
+@use '../../../styles/variables' as *;
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-text-muted);
+  }
+
+  &--alive &__dot { background: var(--color-success); }
+  &--dead &__dot { background: var(--color-danger); }
+  &--unknown &__dot { background: var(--color-warning); }
+}

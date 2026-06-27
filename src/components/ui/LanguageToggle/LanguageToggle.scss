@@ -1,0 +1,22 @@
+@use '../../../styles/variables' as *;
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: $space-xs $space-sm;
+  border-radius: $radius-pill;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+
+  span.is-active {
+    color: var(--color-primary);
+  }
+
+  &__divider {
+    opacity: 0.5;
+  }
+}
